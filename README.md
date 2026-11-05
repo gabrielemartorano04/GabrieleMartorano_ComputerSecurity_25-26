@@ -7,7 +7,7 @@ The project was developed for the *Software Security (SOFE4840U)* course, demons
 * **University:** Ontario Tech University — Canada
 * **Course:** Software Security (SOFE4840U)
 * **Professor:** Prof. Khalid Abdel Hafeez
-* **Authors:** Emmanuel Eme, Gabriele Martorano and Victor Oladeinde 
+* **Authors:** Emmanuel Eme, [Gabriele Martorano](https://github.com/gabrielemartorano04) and Victor Oladeinde 
 
 ---
 
@@ -52,7 +52,7 @@ secure_purchase_order/
 
 Follow these steps to set up the environment on your local machine. These steps only need to be performed once.
 
-### 1. Check Python versionù
+### 1. Check Python version
 
 Make sure you have Python 3.10 or newer installed.
 
@@ -156,13 +156,13 @@ You can test the system's resilience against common cyber threats by simulating 
 The following diagram illustrates the cryptographic pipeline from the Purchaser to the Department:
 
 ```
-Purchaser                         Supervisor                   Department
-─────────                         ──────────                   ──────────
+Purchaser                                         Supervisor                 Department
+─────────                                         ──────────                 ──────────
 order JSON
   │
-  ├─ SHA-256 hash ─────────────────────────────────────────────────────► verify hash
+  ├─ SHA-256 hash ────────────────────────────────────────────────────────► verify hash
   │
-  ├─ RSA-PSS sign (purchaser key) ─────────────────────────────────────► verify sig
+  ├─ RSA-PSS sign (purchaser key) ────────────────────────────────────────► verify sig
   │
   ├─ AES-256-CBC encrypt ──────────────────────► AES decrypt
   │
@@ -177,12 +177,12 @@ order JSON
                                                │  • sv decision   │
                                                └───────┬──────────┘
                                                        │
-                                               RSA-PSS sign (sv key) ──► verify sv sig
-                                               AES-256-CBC encrypt ─────► AES decrypt
-                                               RSA-OAEP wrap (dept key) ► RSA unwrap
-                                                                          re-verify purchaser sig
-                                                                          replay check (UUID)
-                                                                          audit log
+                                               RSA-PSS sign (sv key) ─────► verify sv sig
+                                               AES-256-CBC encrypt ───────► AES decrypt
+                                               RSA-OAEP wrap (dept key) ──► RSA unwrap
+                                                                            re-verify purchaser sig
+                                                                            replay check (UUID)
+                                                                            audit log
 ```
 
 ---
